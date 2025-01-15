@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha Sim ou Não</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #message {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #no {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">Cuzinho hoje?</div>
+    <button id="yes">Sim</button>
+    <button id="no">Não</button>
+
+    <script>
+        const noButton = document.getElementById('no');
+        const yesButton = document.getElementById('yes');
+        const messageDiv = document.getElementById('message');
+
+        // Função para mover o botão "Não" para uma posição aleatória
+        noButton.addEventListener('mouseover', () => {
+            const randomX = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        });
+
+        // Função para alterar a mensagem quando "Sim" é clicado
+        yesButton.addEventListener('click', () => {
+            messageDiv.textContent = 'Só se comprar pizza! 😄';
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
